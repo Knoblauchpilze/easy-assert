@@ -92,6 +92,35 @@ func Test(t *testing.T) {
 }
 ```
 
+## What about time zones?
+
+This is not the only thing that is solved by using this package. Another cumbersome situation to deal with is the following:
+
+```go
+func Test(t *testing.T) {
+	user := User{
+		Name: "my-user",
+		CreatedAt: time.Now(),
+	}
+
+	// For brevity we omit the fetching of the createAt.
+	dbCreatedAt, err := conn.ExecContext(
+		ctx,
+		`INSERT INTO users (name, created_at)
+			VALUES ($1, $2)
+			RETURNING created_at`,
+		user.Name,
+		user.CreatedAt
+	)
+
+	assert.Equal(t, user.CreatedAt, dbCreatedAt)
+}
+```
+
+Depending on the settings of your database it might be that both times are not equal: this is because one might be expressed in UTC while the other one is most likely expressed in your local time zone.
+
+Using `EqualsIgnoringFields` allows to leverage the `cmp.Equal` logic which uses the `time.Time` `Equals` method for the comparison: this correctly returns that both times are equal even though expressed in different time zones.
+
 # Installation
 
 To install this package and use it in our projects, just run:
