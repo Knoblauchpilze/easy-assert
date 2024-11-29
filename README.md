@@ -121,6 +121,8 @@ Depending on the settings of your database it might be that both times are not e
 
 Using `EqualsIgnoringFields` allows to leverage the `cmp.Equal` logic which uses the `time.Time` `Equals` method for the comparison: this correctly returns that both times are equal even though expressed in different time zones.
 
+You can find a list of the assertions provided by this package in the [All the assertions](#all-the-assertions) section.
+
 # Installation
 
 To install this package and use it in our projects, just run:
@@ -154,3 +156,23 @@ You can clone the repository locally with:
 ```bash
 git clone git@github.com:Knoblauchpilze/easy-assert.git`
 ```
+
+# All the assertions
+
+```go
+func EqualsIgnoringFields[T any](actual T, expected T, ignoredFields ...string) bool { /* ...*/ }
+```
+
+**Brief:** returns true if `actual` and `expected` are equal (using [go-cmp](https://github.com/google/go-cmp) as a comparer) excluding the fields named in `ignoredFields`.
+
+```go
+func ContainsIgnoringFields[T any](actual []T, expected T, ignoredFields ...string) bool { /* ... */ }
+```
+
+**Brief:** returns true if `actual` contains at least one instance of `expected` using `EqualsIgnoringFields` as a comparator.
+
+```go
+func AreTimeCloserThan(t1 time.Time, t2 time.Time, distance time.Duration) bool { /* ... */ }
+```
+
+**Brief:** returns true if `t1` and `t2` are close than the distance.
