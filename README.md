@@ -2,7 +2,9 @@
 
 # Badges
 
-TODO
+[![Build packages](https://github.com/Knoblauchpilze/easy-assert/actions/workflows/build-packages.yml/badge.svg)](https://github.com/Knoblauchpilze/easy-assert/actions/workflows/build-packages.yml)
+
+[![codecov](https://codecov.io/gh/Knoblauchpilze/easy-assert/graph/badge.svg?token=DL8I09GHC1)](https://codecov.io/gh/Knoblauchpilze/easy-assert)
 
 # Why this project?
 
