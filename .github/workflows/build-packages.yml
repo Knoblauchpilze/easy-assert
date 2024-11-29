@@ -5,7 +5,7 @@ on:
     paths:
       - "go.mod"
       - ".github/workflows/**"
-      - "**.go"
+      - "assert/**.go"
 
 jobs:
   tests:
