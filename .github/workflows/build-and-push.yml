@@ -1,0 +1,26 @@
+name: Build services
+
+on:
+  push:
+    paths:
+      - "go.mod"
+      - ".github/workflows/**"
+      - "**.go"
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.23.2"
+      - name: Run tests with coverage
+        run: go test ./... -coverpkg=./... -race -covermode=atomic -coverprofile=coverage.out
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          fail_ci_if_error: true
+          files: ./coverage.out
+          token: ${{ secrets.CODECOV_TOKEN }}
