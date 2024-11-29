@@ -10,13 +10,13 @@
 
 ## The problem statement
 
-This project is a collection of utility functions to assert things in collections and object.
+This project is a collection of utility functions to assert things in collections and objects.
 
 When developing a rest application it is common to define repositories, services and controllers. Those types usually manipulate custom entities and DTOs which are (in Go) usually `struct`s.
 
 It's also very common that those entities or DTOs ultimately are saved into or extracted from a database. And a common practice in databases is to have fields like `updated_at` or `created_at` to help tracking when rows were created.
 
-In a testing environment and especially in integration tests, it can be quite cumbersome to assert that a certain item is in a collection of values returned by a repository or a service when all values have different time stamps.
+In a testing environment and especially in integration tests, it can be quite cumbersome to assert that a certain item is in a collection of values returned by a repository or a service when all values have different timestamps.
 
 ## Isn't this a solved problem?
 
