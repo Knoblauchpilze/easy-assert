@@ -103,7 +103,7 @@ func Test(t *testing.T) {
 		CreatedAt: time.Now(),
 	}
 
-	// For brevity we omit the fetching of the createAt.
+	// For brevity we omit the code to create the database connection
 	dbCreatedAt, err := conn.ExecContext(
 		ctx,
 		`INSERT INTO users (name, created_at)
