@@ -154,7 +154,7 @@ As it uses generics so it can't be used with versions lower than [1.18](https://
 You can clone the repository locally with:
 
 ```bash
-git clone git@github.com:Knoblauchpilze/easy-assert.git`
+git clone git@github.com:Knoblauchpilze/easy-assert.git
 ```
 
 # All the assertions
