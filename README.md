@@ -175,4 +175,4 @@ func ContainsIgnoringFields[T any](actual []T, expected T, ignoredFields ...stri
 func AreTimeCloserThan(t1 time.Time, t2 time.Time, distance time.Duration) bool { /* ... */ }
 ```
 
-**Brief:** returns true if `t1` and `t2` are close than the distance.
+**Brief:** returns true if `t1` and `t2` are separated by a time interval smaller than `duration`.
