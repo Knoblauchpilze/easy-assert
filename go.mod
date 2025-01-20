@@ -1,4 +1,4 @@
-module github.com/KnoblauchPilze/easy-assert
+module github.com/Knoblauchpilze/easy-assert
 
 go 1.23.2
 

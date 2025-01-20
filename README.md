@@ -136,7 +136,7 @@ You can then import the package in your go files as shown below:
 ```go
 package dummy
 
-import "github.com/KnoblauchPilze/easy-assert/assert"
+import "github.com/Knoblauchpilze/easy-assert/assert"
 
 func Test(t *testing.T) {
 	var t1, t2 time.Time
